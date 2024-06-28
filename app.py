@@ -9,5 +9,17 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/articles")
+def articles():
+    return render_template("articles.html")
+
+@app.route("/project")
+def project():
+    return render_template("project.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 if __name__=="__main__":
     app.run(debug=True)
