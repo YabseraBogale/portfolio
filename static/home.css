@@ -2,19 +2,30 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
     background-color: rgb(37,37,38);
+    color: rgb(0,122,204);
 }
 
 nav{
     color: rgb(0,122,204);
-    display: flex;
-    float: left;
+    display: flex;  
     flex-direction: row; 
    
 }
 a{
-    color: rgb(0,122,204);
     padding: 3px;
     text-decoration: none;
-    margin: 2px;
+    font-weight: bold;
+}
 
+hr{
+    color: rgb(0,122,204);
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    border-radius: 50%;
 }
