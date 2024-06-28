@@ -5,27 +5,3 @@
     color: rgb(0,122,204);
 }
 
-nav{
-    color: rgb(0,122,204);
-    display: flex;  
-    flex-direction: row; 
-   
-}
-a{
-    padding: 3px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-hr{
-    color: rgb(0,122,204);
-}
-
-.main{
-    display: flex;
-    flex-direction: row;
-}
-
-img{
-    border-radius: 50%;
-}
