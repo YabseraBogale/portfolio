@@ -3,7 +3,7 @@ import sqlite3
 class Database():
     
     def __init__(self):
-        self.connection=sqlite3.Connection("database.db")
+        self.connection=sqlite3.connect("database.db")
         self.pointer=self.connection.cursor()
 
     def InsertIntoArticle(self,ArticleName,ArticleDate,TimeToFinish):
@@ -21,5 +21,9 @@ class Database():
             self.result=self.pointer.fetchall()
             return True
         except Exception as e:
-            return repr(e)
-        
+            return str(e)
+
+
+Database().CreateArticle()
+Database().InsertIntoArticle("hello world","12-2-1024","12-2-1024")
+print(Database().GetArticle())
