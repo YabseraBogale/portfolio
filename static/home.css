@@ -3,14 +3,34 @@
     font-size: large;
 }
 
+.nav{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-top: 3px;
+}
+
 ul{
     display: flex;
     flex-direction: row;
-   
+    
 }
 
 li{
     list-style-type: none;
     padding: 5px;
-    align-items: end;
+    
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    padding-top: 55px;
+}
+
+img{
+    padding-left: 2px;
+}
+
+.aboutme{
+    padding-left: 12px;
 }
