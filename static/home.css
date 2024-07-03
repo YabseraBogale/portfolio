@@ -4,18 +4,14 @@
 
 }
 
-
-
-ul{
-    display: flex;
-    flex-direction: row;
-    
+nav{
+    padding: 15px;
 }
 
-li{
-    list-style-type: none;
+a{
+    text-decoration: none;
+    color: black;
     padding: 5px;
-    
 }
 
 .main{
@@ -25,7 +21,7 @@ li{
 }
 
 img{
-    padding-left: 2px;
+    padding-left: 12px;
     border-radius: 50%;
 }
 

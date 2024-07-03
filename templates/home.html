@@ -7,29 +7,25 @@
     <title>Welcome</title>
 </head>
 <body>
-    <div class="nav">
-        <ul>
-            <li>
-                home
-            </li>
-            <li>
-                articles 
-            </li>
-            <li>
-                project
-            </li>
-            <li>
-                contact
-            </li>
-        </ul>
-    </div>
+    <nav>
+        <a href="{{url_for('home')}}">home</a>
+        <a href="{{url_for('articles')}}">articles</a>
+        <a href="{{url_for('project')}}">project</a>
+        <a href="{{url_for('contact')}}">contact</a>
+    </nav>
 
     <div class="main">
         <img src="{{url_for('static',filename='image/me.jpg')}}" alt="Image of Yabsera Bogale">
         <div class="aboutme">
             <h3>Hi. Yabsera Bogale here</h3>
-            <p>I am a professional developer based in Addis Ababa, Ethiopia, with a strong background in software development and data science. 
-               I have experience working with various programming languages such as <strong>Python, C++, SQL, and JavaScript</strong>. And have worked on projects involving <strong>Flask, Express.js, MySQL, and SQLAlchemy.</strong>
+            <p>
+                I am a professional developer based in Addis Ababa, Ethiopia, with a strong background in <strong>software development and data science.</strong> 
+            </p>
+            <p>
+                I have experience working with various programming languages such as <strong>Python, C++, SQL, and JavaScript</strong>. And have worked on projects involving <strong>Flask, Express.js, MySQL, and SQLAlchemy.</strong>
+                
+            </p>
+            <p>
                 Also is passionate about math and problem-solving, and is actively contributes to open-source projects on <strong>GitHub.</strong> 
                 I am also involved in the tech community, offering insights and training on topics like <strong>Flask and backend development.</strong>
             </p>
