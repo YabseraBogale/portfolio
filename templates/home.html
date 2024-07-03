@@ -7,12 +7,22 @@
     <title>Welcome</title>
 </head>
 <body>
-    <nav>
-        <a href="#">home</a>
-        <a href="{{url_for('articles')}}">articles</a>
-        <a href="{{url_for('project')}}">project</a>
-        <a href="{{url_for('contact')}}">contact</a>
-    </nav>
+    <div class="nav">
+        <ul>
+            <li>
+                home
+            </li>
+            <li>
+                articles 
+            </li>
+            <li>
+                project
+            </li>
+            <li>
+                contact
+            </li>
+        </ul>
+    </div>
     <div class="main">
         <img src="{{url_for('static',filename='image/me.jpg')}}" alt="">
         <div class="about">
