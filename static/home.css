@@ -1,13 +1,10 @@
 *{
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
+
 }
 
-.nav{
-    border: 2px solid black;
-    border-radius: 5px;
-    padding-top: 3px;
-}
+
 
 ul{
     display: flex;
@@ -29,6 +26,7 @@ li{
 
 img{
     padding-left: 2px;
+    border-radius: 50%;
 }
 
 .aboutme{
