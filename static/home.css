@@ -1,3 +1,16 @@
 *{
-    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+li{
+    list-style-type: none;
+    padding: 5px;
+    align-items: end;
 }
