@@ -8,11 +8,6 @@ app=Flask(__name__)
 def home():
     return render_template("home.html")
 
-
-@app.route("/articles")
-def articles():
-    return render_template("articles.html")
-
 @app.route("/project")
 def project():
     return render_template("project.html")
