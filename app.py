@@ -12,6 +12,11 @@ def home():
 def project():
     return render_template("project.html")
 
+@app.route("/project/urishortener/<name>")
+def urishort(name):
+    name="hi"+str(name)
+    return name
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
