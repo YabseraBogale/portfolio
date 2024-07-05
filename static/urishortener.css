@@ -22,8 +22,17 @@ a{
 
 .main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-top: 55px;
+}
+
+.newuri{
+    padding: 15px;
+}
+
+
+.olduri{
+    padding: 15px;
 }
 
 img{

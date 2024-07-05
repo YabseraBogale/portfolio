@@ -4,7 +4,7 @@ import sqlite3
 class Database():
     
     def __init__(self):
-        self.connection=sqlite3.connect("database.db")
+        self.connection=sqlite3.connect("database.db",check_same_thread=False)
         self.pointer=self.connection.cursor()
 
     def CreateTableProject(self):

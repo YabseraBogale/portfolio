@@ -21,7 +21,8 @@ def urishort(name):
 def urishorten():
     if request.method=="POST":
         data=database.InsertUriShortener(request.form["uri"])
-        return render_template("urishortener.html",newuri=data) 
+        data=database.GetSpecificUri(request.form["uri"])
+        return render_template("urishortener.html",newuri=data[0],olduri=request.form["uri"]) 
     return render_template("urishortener.html")
 
 
