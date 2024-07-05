@@ -13,7 +13,10 @@
         <a href="{{url_for('contact')}}">contact</a>
     </nav>
     <div class="main">
-        
+        <form action="{{url_for('urishorten')}}" method="post">
+            <input type="text" name="uri" id="" placeholder="Uri Shortener">
+            <input type="submit" value="enter">
+        </form>
         </div>
     </div>
 </body>
