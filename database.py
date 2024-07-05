@@ -44,6 +44,15 @@ class Database():
         except Exception as e:
             return str(e)
     
+    def GetSpecificUri(self,orginalUri):
+        try:
+            statment="select newUri from UriShortener where orginalUri=?"
+            self.pointer.execute(statment,(orginalUri,))
+            self.result=self.pointer.fetchone()
+            return self.result
+        except Exception as e:
+            return str(e)
+
     def GetAllProject(self):
         try:
             self.pointer.execute("select * from project")

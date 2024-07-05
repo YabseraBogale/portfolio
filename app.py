@@ -1,8 +1,8 @@
 from flask import Flask,render_template,url_for,request
-
+from database import Database
 
 app=Flask(__name__)
-
+database=Database()
 
 @app.route("/")
 def home():
@@ -20,7 +20,7 @@ def urishort(name):
 @app.route("/project/urishortener",methods=['GET','POST'])
 def urishorten():
     if request.method=="POST":
-        uri=request.form["uri"]
+        data=database.InsertUriShortener(request.form["uri"])
         return uri
     return render_template("urishortener.html")
 

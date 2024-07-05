@@ -1,4 +1,4 @@
 from database import Database
 
 
-print(Database().CreateTableUriShortener())
+# print(Database().CreateTableUriShortener())
