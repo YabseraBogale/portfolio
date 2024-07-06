@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,url_for,request,redirect
 from database import Database
 
 app=Flask(__name__)
@@ -12,9 +12,9 @@ def home():
 def project():
     return render_template("project.html")
 
-@app.route("/project/urishortener/<name>")
+@app.route("/<name>")
 def urishort(name):
-    name="hi"+str(name)
+    
     return name
 
 @app.route("/project/urishortener",methods=['GET','POST'])
