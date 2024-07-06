@@ -44,12 +44,21 @@ class Database():
         except Exception as e:
             return str(e)
     
-    def GetSpecificUri(self,orginalUri):
+    def GetSpecificNewUri(self,orginalUri):
         try:
             statment="select newUri from UriShortener where orginalUri=?"
             self.pointer.execute(statment,(orginalUri,))
             self.result=self.pointer.fetchone()
             return self.result
+        except Exception as e:
+            return str(e)
+    
+    def GetSpecificOldUri(self,newUri):
+        try:
+            statment="select orginalUri from UriShortener where newUri=?"
+            self.pointer.execute(statment,(newUri,))
+            self.result=self.pointer.fetchone()
+            return self.result[0]
         except Exception as e:
             return str(e)
 
