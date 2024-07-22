@@ -11,7 +11,7 @@ def wikiapp():
         article=request.form["article"]
         uri=api+article
         result=get(uri).json()
-        return result
+        return render_template("wikiapp.html",data=result)
     return render_template("wikiapp.html")
 
 @app.route("/weather")

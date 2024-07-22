@@ -11,11 +11,26 @@
         <h2>
             Wiki Article Viewer
         </h2>
-        <form action="{{url_for('wikiappfetch')}}" method="post">
+        <form action="{{url_for('wikiapp')}}" method="post">
             <input type="text" id="article" name="article" placeholder="Search Wiki">
             <input type="submit" value="search">
         </form>
-        
+       {% if data %}
+       <ol>
+            {% for item in data["query"]["pages"] %}
+            <a href="https://en.wikipedia.org/?curid={{data['query']['pages'][item]['pageid']}}">
+                <li>
+                    <h3>{{data["query"]["pages"][item]["title"]}}</h3>
+                    <p>{{data["query"]["pages"][item]["extract"]}}</p>
+                </li>
+            </a>
+            {% endfor %}
+        </ol>
+       {% else %}
+        <ol>
+
+        </ol>
+       {% endif %}
     </div>
     <script src="{{url_for('static',filename='wikiapp.js')}}"></script>
 </body>
