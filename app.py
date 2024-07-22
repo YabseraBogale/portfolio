@@ -1,8 +1,8 @@
 from flask import Flask,render_template,url_for,request,redirect
 from requests import get
-#from flask_cors import CORS
+
 app=Flask(__name__)
-#CORS(app,origins=["http://127.0.0.1:5000/wikiapp"])
+
 
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
