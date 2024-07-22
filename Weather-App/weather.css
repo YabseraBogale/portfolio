@@ -1,0 +1,22 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    background-color:rgb(37,37,38);
+    color:aliceblue;
+}
+body{
+    margin-top: 2%;
+    margin-left: 5%;  
+  
+}
+h2{
+    font-size: xx-large;
+}
+.app{
+    display: flex;
+    flex-direction: row;
+}
+p{
+    padding: 5px;
+   
+}
