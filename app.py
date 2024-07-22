@@ -4,15 +4,18 @@ from requests import get
 app=Flask(__name__)
 #CORS(app,origins=["http://127.0.0.1:5000/wikiapp"])
 
-@app.route("/wikiapp",methods=["GET","POST"])
+@app.route("/wikiapp")
 def wikiapp():
+    return render_template("wikiapp.html")
+
+@app.route("/wikiappfetch",methods=["GET","POST"])
+def wikiappfetch():
     if request.method=="POST":
         api='https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch='
         article=request.form["article"]
         uri=api+article
         result=get(uri).json()
         return result
-    return render_template("wikiapp.html")
 
 @app.route("/weather")
 def weather():
