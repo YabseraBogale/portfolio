@@ -15,7 +15,9 @@ def wikiapp():
     return render_template("wikiapp.html")
 
 
-@app.
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 
 @app.route("/weather")
 def weather():
