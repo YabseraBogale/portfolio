@@ -44,12 +44,14 @@ def login_is_required(function):
 
 @app.route("/home")
 def home():
+    print(session)
     return render_template("home.html")
 
 @app.route("/wikiapp",methods=["GET","POST"])
-@login_is_required
 def wikiapp():
-    if request.method=="POST":
+    if 'state' not in session:
+        return redirect('/home')
+    elif request.method=="POST":
         api='https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch='
         article=request.form["article"]
         uri=api+article
@@ -59,8 +61,9 @@ def wikiapp():
 
 
 @app.route("/weather")
-@login_is_required
 def weather():
+    if 'state' not in session:
+        return redirect('/home')
     return render_template("weather.html")
 
 @app.route("/login")
