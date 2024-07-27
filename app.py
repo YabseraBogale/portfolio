@@ -1,12 +1,22 @@
 import os
+import requests
 from flask import Flask,render_template,url_for,request,redirect
 from requests import get
 from dotenv import load_dotenv
-load_dotenv()
+from google.oauth2 import id_token
+from google_auth_oauthlib.flow import Flow
+from pip._vendor import cachecontrol
+import google.auth.transport.requests
 
+
+load_dotenv()
 app=Flask(__name__)
 
 app.secret_key=os.environ["app_secret_key"]
+
+
+# for http to work https is the default
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
@@ -26,6 +36,10 @@ def signup():
 @app.route("/weather")
 def weather():
     return render_template("weather.html")
+
+@app.route("/redirect")
+def redirect():
+    return "redirect"
 
 if __name__=="__main__":
     app.run(debug=True)
