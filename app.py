@@ -1,5 +1,6 @@
 import os
 import requests
+import pathlib
 from flask import Flask,render_template,url_for,request,redirect
 from requests import get
 from dotenv import load_dotenv
@@ -11,13 +12,18 @@ import google.auth.transport.requests
 
 load_dotenv()
 app=Flask(__name__)
-
-app.secret_key=os.environ["app_secret_key"]
-
-
 # for http to work https is the default
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
+
+GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
+app.secret_key=os.environ["app_secret_key"]
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
+flow = Flow.from_client_secrets_file(
+    client_secrets_file=client_secrets_file,
+    scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
+    redirect_uri="http://127.0.0.1:5000/redirect"
+)
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
     if request.method=="POST":
