@@ -3,6 +3,7 @@ from requests import get
 
 app=Flask(__name__)
 
+app.secret_key =os.environ
 
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
@@ -15,7 +16,7 @@ def wikiapp():
     return render_template("wikiapp.html")
 
 
-@app.route("/signup")
+@app.route("/signup",methods=['GET','POST'])
 def signup():
     return render_template("signup.html")
 
