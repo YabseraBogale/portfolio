@@ -1,10 +1,12 @@
+import os
 from flask import Flask,render_template,url_for,request,redirect
 from requests import get
 from dotenv import load_dotenv
+load_dotenv()
 
 app=Flask(__name__)
-load_dotenv()
-app.secret_key=
+
+app.secret_key=os.environ["app_secret_key"]
 
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
