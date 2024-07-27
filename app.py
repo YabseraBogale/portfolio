@@ -1,7 +1,8 @@
 import os
 import requests
 import pathlib
-from flask import Flask,render_template,url_for,request,redirect
+from flask import Flask,render_template,url_for,session,request,redirect
+from flask_session import Session
 from requests import get
 from dotenv import load_dotenv
 from google.oauth2 import id_token
@@ -12,6 +13,7 @@ import google.auth.transport.requests
 
 load_dotenv()
 app=Flask(__name__)
+Session(app)
 # for http to work https is the default
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
