@@ -4,3 +4,4 @@
 /vars/
 /.env
 /client_secret.json
+/flask_session/
