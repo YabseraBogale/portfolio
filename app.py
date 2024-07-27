@@ -15,16 +15,21 @@ import google.auth.transport.requests
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 load_dotenv()
 app=Flask(__name__)
-session=Session(app)
-
-
-
+app.config['SESSION_TYPE'] = 'filesystem'
 GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
 app.secret_key=os.environ["app_secret_key"]
+session=Session()
+session.init_app(app)
+
+
+
+
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
-    scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
+    scopes=["https://www.googleapis.com/auth/userinfo.profile", 
+            "https://www.googleapis.com/auth/userinfo.email", 
+            "openid"],
     redirect_uri="http://127.0.0.1:5000/redirect"
 )
 
@@ -34,7 +39,7 @@ def login_is_required(function):
             return abort(401)  # Authorization required
         else:
             return function()
-
+    wrapper.__name__ = function.__name__
     return wrapper
 
 @app.route("/home")
