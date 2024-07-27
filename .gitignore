@@ -3,3 +3,4 @@
 /.vscode
 /vars/
 /.env
+/client_secret.json
