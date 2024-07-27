@@ -12,19 +12,19 @@ import google.auth.transport.requests
 
 
 # for http to work https is the default
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+
 load_dotenv()
 app=Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
 app.secret_key=os.environ["app_secret_key"]
-session=Session()
-session.init_app(app)
+Session(app)
 
 
 
 
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", 
@@ -67,7 +67,7 @@ def weather():
 def login():
     authorization_url, state = flow.authorization_url()
     session["state"] = state
-    return redirect(authorization_url)
+    return redirect(authorization_url,code=302)
 
 @app.route("/signup",methods=['GET','POST'])
 def signup():
@@ -75,7 +75,7 @@ def signup():
 
 
 @app.route("/redirect")
-def redirect():
+def redirection():
     flow.fetch_token(authorization_response=request.url)
 
     if not session["state"] == request.args["state"]:
@@ -94,7 +94,7 @@ def redirect():
 
     session["google_id"] = id_info.get("sub")
     session["name"] = id_info.get("name")
-    return redirect("/home")
+    return redirect("/home",code=302)
 
 if __name__=="__main__":
     app.run(debug=True)
