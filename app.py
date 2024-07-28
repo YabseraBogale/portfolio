@@ -73,6 +73,10 @@ def login():
     session["state"] = state
     return redirect(authorization_url,code=302)
 
+@app.route("/logout")
+def logout():
+    return redirect('/home',code=302)
+
 @app.route("/signup",methods=['GET','POST'])
 def signup():
     return render_template("signup.html")
