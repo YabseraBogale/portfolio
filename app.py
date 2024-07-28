@@ -44,6 +44,8 @@ def login_is_required(function):
 
 @app.route("/home")
 def home():
+    if 'state' in session:
+        return render_template('home.html',name=session['name'])
     return render_template("home.html")
 
 @app.route("/wikiapp",methods=["GET","POST"])
@@ -93,8 +95,6 @@ def redirection():
         request=token_request,
         audience=GOOGLE_CLIENT_ID
     )
-
-    print(id_info)
     session["google_id"] = id_info.get("sub")
     session["name"] = id_info.get("name")
     return redirect("/home",code=302)
