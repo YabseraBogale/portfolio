@@ -44,7 +44,6 @@ def login_is_required(function):
 
 @app.route("/home")
 def home():
-    print(session)
     return render_template("home.html")
 
 @app.route("/wikiapp",methods=["GET","POST"])
@@ -85,6 +84,7 @@ def redirection():
         abort(500)  # State does not match!
 
     credentials = flow.credentials
+    print(credentials)
     request_session = requests.session()
     cached_session = cachecontrol.CacheControl(request_session)
     token_request = google.auth.transport.requests.Request(session=cached_session)
