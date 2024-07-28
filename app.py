@@ -75,6 +75,8 @@ def login():
 
 @app.route("/logout")
 def logout():
+    session.pop("state",None)
+    session.pop("name",None)
     return redirect('/home',code=302)
 
 @app.route("/signup",methods=['GET','POST'])
