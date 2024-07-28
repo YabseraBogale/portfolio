@@ -84,7 +84,6 @@ def redirection():
         abort(500)  # State does not match!
 
     credentials = flow.credentials
-    print(credentials)
     request_session = requests.session()
     cached_session = cachecontrol.CacheControl(request_session)
     token_request = google.auth.transport.requests.Request(session=cached_session)
@@ -95,6 +94,7 @@ def redirection():
         audience=GOOGLE_CLIENT_ID
     )
 
+    print(id_info)
     session["google_id"] = id_info.get("sub")
     session["name"] = id_info.get("name")
     return redirect("/home",code=302)
