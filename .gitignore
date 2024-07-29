@@ -7,3 +7,4 @@
 /flask_session/
 config.json
 config.py
+admin_secret.json
