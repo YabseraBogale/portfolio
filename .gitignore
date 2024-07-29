@@ -6,3 +6,4 @@
 /client_secret.json
 /flask_session/
 config.json
+config.py
