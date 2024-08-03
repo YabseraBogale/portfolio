@@ -48,6 +48,10 @@ def home():
         return render_template('home.html',name=session['name'])
     return render_template("home.html")
 
+@app.route("/music")
+def music():
+    return render_template("music.html")
+
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
     if 'state' not in session:
