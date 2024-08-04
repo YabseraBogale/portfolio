@@ -54,8 +54,8 @@ def music():
 
 @app.route("/music/list")
 def musiclist():
-    
-    pass
+    lst=os.listdir("./static/music")
+    return jsonify(lst)
 
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
