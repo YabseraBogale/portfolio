@@ -4,6 +4,7 @@ fetch("http://127.0.0.1:5000/music/list")
        let place="{{url_for('static',filename='music/8_Muse-Hysteria.mp3')}}"
        let music=""
        let audio=document.getElementsByTagName("audio")
+       audio[0].play()
        let order=document.getElementsByTagName("ol")
        for(let i=0;i<data.length;i++){
         music+="<li>"+data[i].split(".m")[0]+"</li>"
