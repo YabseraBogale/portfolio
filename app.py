@@ -1,7 +1,7 @@
 import os
 import requests
 import pathlib
-from flask import Flask,render_template,url_for,session,request,redirect,abort
+from flask import Flask,render_template,url_for,session,request,redirect,abort,jsonify
 from flask_session import Session
 from requests import get
 from dotenv import load_dotenv
@@ -51,6 +51,11 @@ def home():
 @app.route("/music")
 def music():
     return render_template("music.html")
+
+@app.route("/music/list")
+def musiclist():
+    
+    pass
 
 @app.route("/wikiapp",methods=["GET","POST"])
 def wikiapp():
