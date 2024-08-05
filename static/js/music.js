@@ -18,7 +18,9 @@ fetch("http://127.0.0.1:5000/music/list")
        for(let i=0;i<list.length;i++){
             list[i].addEventListener("click",function(){
                audio[0].pause()
-               audio[0].src=place+data[i]+"')}}"
+               place=place+data[i]+"')}}"
+               console.log(place);
+               audio[0].src=place
                audio[0].play()
             })
        }
