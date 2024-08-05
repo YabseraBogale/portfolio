@@ -1,7 +1,7 @@
 fetch("http://127.0.0.1:5000/music/list")
     .then(response=>response.json())
     .then(data=>{
-       let place="{{url_for('static',filename='music/8_Muse-Hysteria.mp3')}}"
+       let place="{{url_for('static',filename='music/"
        let music=""
        let audio=document.getElementsByTagName("audio")
        if(audio[0].muted==true){
@@ -17,8 +17,9 @@ fetch("http://127.0.0.1:5000/music/list")
        let list=document.getElementsByTagName("li")
        for(let i=0;i<list.length;i++){
             list[i].addEventListener("click",function(){
-                
-                
+               audio[0].pause()
+               audio[0].src=place+data[i]+"')}}"
+               audio[0].play()
             })
        }
        
