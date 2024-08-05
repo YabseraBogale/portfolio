@@ -34,15 +34,13 @@ fetch("http://127.0.0.1:5000/music/list")
                audio[0].src=place+data[p+1]
                audio[0].play()
                p=i+1
-               document.getElementsByTagName("h3")[0].innerText="playing "+p
-               
+                      
           } else if(p==28){
                audio[0].pause()
                audio[0].src=place+data[0]
                audio[0].play()
                p=1
-               document.getElementsByTagName("h3")[0].innerText="playing "+p
-               
+                    
           }
        })
                
